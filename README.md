@@ -1,45 +1,24 @@
 # Reema Rafiudeen — Refined Portfolio
 
 ## Files
-- index.html
-- profile.jpg
-- Reema-Rafiudeen-CV-2026.pdf
 
-## Add your project images
+- `index.html`
+- `profile.jpg`
+- `Reema-Rafiudeen-CV-2026.pdf`
 
-Create a folder called `images` beside `index.html`, for example:
+## Project Images
 
-images/
-  guardianeye.jpg
-  tailorher.jpg
-  project3.jpg
+The project screenshots are stored alongside `index.html`. Make sure all image filenames referenced in the HTML match the actual files in the repository.
 
-Then replace the visual placeholder in each project card with:
+## GitHub and LinkedIn Links
 
-<img class="project-image" src="images/guardianeye.jpg" alt="GuardianEye project">
+Open `index.html` and search for these placeholders:
 
-Add this CSS if you want project images to fill the card:
+- `YOUR_GITHUB_URL`
+- `YOUR_LINKEDIN_URL`
+- `YOUR_GUARDIANEYE_LINK`
+- `YOUR_TAILORHER_LINK`
 
-.project-image {
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:.42;
-}
+Replace each placeholder with the correct URL.
 
-## Add your GitHub
-
-Search for this text in index.html:
-
-YOUR_GITHUB_URL
-
-Replace every occurrence with your actual GitHub profile URL.
-
-Also replace:
-- YOUR_LINKEDIN_URL
-- YOUR_GUARDIANEYE_LINK
-- YOUR_TAILORHER_LINK
-
-The portfolio intentionally does not invent these URLs.
+The portfolio does not invent project or profile links.
