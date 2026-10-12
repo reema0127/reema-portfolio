@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+
+
+
+<head>
+
+
+
+<meta charset="UTF-8">
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<meta name="description" content="Reema Rafiudeen — Software Engineering portfolio featuring AI, mobile and full-stack projects.">
+
+
+
+<title>Reema Rafiudeen | Software Engineering Portfolio</title>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+
+<style>
+
+
+
+:root{--bg:#080a10;--surface:#11151f;--surface2:#171d29;--text:#f5f7fb;--muted:#a1aabd;--line:rgba(255,255,255,.11);--cyan:#7cecff;--violet:#a894ff;--lime:#c7f27a;--max:1160px;--radius:24px}
+
+
+
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,Arial,sans-serif;line-height:1.65;overflow-x:hidden}
+
+
+
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle at 80% 0,rgba(124,236,255,.12),transparent 30rem),radial-gradient(circle at 0 45%,rgba(168,148,255,.1),transparent 27rem)}
+
+
+
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}.container{width:min(var(--max),calc(100% - 40px));margin:auto}.mono{font-family:"DM Mono",monospace}.muted{color:var(--muted)}
+
+
+
+.nav{position:sticky;top:0;z-index:20;background:rgba(8,10,16,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+
+
+
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{font-weight:800;letter-spacing:-.05em}.logo b{color:var(--cyan)}.nav-links{display:flex;gap:26px}.nav-links a,.github-nav{font-size:.78rem;color:var(--muted)}.nav-links a:hover,.github-nav:hover{color:var(--cyan)}.github-nav{border:1px solid var(--line);border-radius:999px;padding:9px 14px;color:var(--text)}
+
+
+
+.hero{min-height:calc(90vh - 72px);display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:center;padding:75px 0 90px}.eyebrow,.section-number{font:500 .7rem "DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}.eyebrow:before{content:"";display:inline-block;width:25px;height:1px;background:var(--cyan);vertical-align:middle;margin:0 10px 3px 0}
+
+
+
+h1{font-size:clamp(3.6rem,7vw,6.8rem);line-height:.95;letter-spacing:-.085em;margin:23px 0;max-width:9ch}.gradient{background:linear-gradient(100deg,#fff 10%,var(--cyan) 52%,var(--violet));background-clip:text;-webkit-background-clip:text;color:transparent}.hero-desc{max-width:620px;color:var(--muted);font-size:1rem}.hero-desc strong{color:var(--text)}
+
+
+
+.buttons,.contact-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:27px}.btn{min-height:45px;padding:0 16px;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;font-size:.78rem;font-weight:800;transition:.2s}.btn:hover{transform:translateY(-2px);border-color:var(--cyan)}.btn.primary{background:var(--cyan);color:#061015;border-color:var(--cyan)}.btn.ghost{background:rgba(255,255,255,.035)}
+
+
+
+.hero-art{position:relative;padding:20px}.hero-panel{border:1px solid var(--line);border-radius:28px;padding:30px;background:linear-gradient(145deg,#171e2b,#0d1119);min-height:330px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 30px 90px #0006}.panel-top{display:flex;justify-content:space-between;color:var(--muted);font: .68rem "DM Mono",monospace}.orb{align-self:center;width:150px;height:150px;border-radius:50%;border:1px solid #7cecff55;display:grid;place-items:center;box-shadow:0 0 65px #7cecff12;position:relative}.orb:before,.orb:after{content:"";position:absolute;border:1px solid #a894ff66;border-radius:50%;inset:18px}.orb:after{inset:43px;border-color:#c7f27a88}.orb span{font-size:2.2rem;color:var(--cyan)}.panel-bottom strong{display:block;font-size:1.25rem}.panel-bottom small{color:var(--muted)}
+
+
+
+.section{padding:85px 0}.section-top{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:32px}.section-title{font-size:clamp(2.2rem,4.4vw,3.6rem);line-height:1;letter-spacing:-.07em;margin:10px 0 0}.section-intro{max-width:470px;color:var(--muted);font-size:.86rem;margin:0}
+
+
+
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.project {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: linear-gradient(145deg, #141a25, #0e1118);
+    transition: transform .25s, border-color .25s;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    border-color: #7cecff66;
+}
+
+.project.featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+}
+
+.project-media {
+    position: relative;
+    min-height: 235px;
+    background: #111824;
+    overflow: hidden;
+}
+
+.featured .project-media {
+    min-height: 380px;
+}
+
+.project-media img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .5s;
+}
+
+.project:hover .project-media img {
+    transform: scale(1.035);
+}
+
+/* TailorHer: preserve the image proportions and show the full screenshot */
+.project:not(.featured) .project-media img {
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Keep the full vertical GuardianEye splash screen visible without cropping */
+.guardianeye-media {
+    min-height: 380px;
+    height: 100%;
+    background: #06142d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.project.featured .guardianeye-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: #06142d;
+}
+.project.featured:hover .guardianeye-media img {
+    transform: none;
+}
+.image-label{position:absolute;left:14px;top:14px;padding:6px 10px;border:1px solid #ffffff33;border-radius:8px;background:#080a10b8;color:#fff;font: .65rem "DM Mono",monospace;backdrop-filter:blur(10px)}.project-body{padding:24px;display:flex;flex-direction:column;align-items:flex-start}.project-index{font:500 .65rem "DM Mono",monospace;color:var(--cyan)}.project h3{font-size:1.55rem;line-height:1.2;letter-spacing:-.045em;margin:12px 0 9px}.project p{color:var(--muted);font-size:.84rem;margin:0}.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:19px}.tag{font: .65rem "DM Mono",monospace;color:#d0d6e1;border:1px solid var(--line);background:#ffffff06;padding:6px 8px;border-radius:7px}.project-links{display:flex;gap:17px;flex-wrap:wrap;margin-top:22px}.project-link{font:500 .7rem "DM Mono",monospace;color:var(--cyan)}.project-link:hover{color:#fff}
+
+.gallery-more{margin-top:18px;width:100%}.gallery-more summary{cursor:pointer;display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font:500 .7rem "DM Mono",monospace;list-style:none;border:1px solid var(--line);border-radius:10px;padding:10px 12px}.gallery-more summary::-webkit-details-marker{display:none}.gallery-more summary:after{content:"+";font-size:1rem}.gallery-more[open] summary:after{content:"−"}.tailorher-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;width:100%}.tailorher-gallery img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#f4f1ed;border-radius:10px;border:1px solid var(--line);cursor:zoom-in}.tailorher-gallery img:hover{border-color:var(--cyan)}.gallery-note{font-size:.72rem;color:var(--muted);margin-top:8px}
+
+/* GuardianEye uses tall phone-screen screenshots: preserve full image without cropping. */
+.guardianeye-media{min-height:380px;height:100%;display:flex;align-items:center;justify-content:center;background:#06142d;padding:18px;overflow:hidden}
+.project.featured .guardianeye-media img{position:relative;inset:auto;width:100%;height:100%;min-height:380px;max-height:560px;object-fit:contain;object-position:center;transition:transform .35s}
+.project.featured:hover .guardianeye-media img{transform:scale(1.015)}
+.guardianeye-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px;width:100%;align-items:start}
+.guardianeye-gallery a{display:block;background:#06142d;border:1px solid var(--line);border-radius:12px;padding:8px;overflow:hidden}
+.guardianeye-gallery img{display:block;width:100%;height:auto;max-height:440px;aspect-ratio:9/19;object-fit:contain;object-position:top center;border-radius:7px;cursor:zoom-in}
+.guardianeye-gallery a:hover{border-color:var(--cyan)}
+@media(max-width:620px){.guardianeye-media{min-height:280px;padding:12px}.project.featured .guardianeye-media img{min-height:280px;max-height:460px}.guardianeye-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.guardianeye-gallery img{max-height:380px}}
+
+
+
+.stack-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}.stack-copy p{color:var(--muted);font-size:.88rem}.stack-copy h3{font-size:2rem;line-height:1.1;letter-spacing:-.06em}.stack-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.stack-card{border:1px solid var(--line);border-radius:16px;padding:19px;background:#ffffff04}.stack-card small{color:var(--cyan);font:500 .65rem "DM Mono",monospace;text-transform:uppercase}.stack-card p{font-size:.8rem;color:#c0c7d4;margin:8px 0 0}
+
+
+
+.about{display:grid;grid-template-columns:.7fr 1.3fr;gap:55px;align-items:start}.about-visual{border:1px solid var(--line);border-radius:24px;min-height:270px;padding:25px;background:linear-gradient(145deg,#171e2b,#0d1119);display:flex;flex-direction:column;justify-content:space-between}.about-visual .big{font-size:4rem;letter-spacing:-.1em;color:var(--cyan)}.about-copy p{color:var(--muted);font-size:.9rem}.timeline{border-left:1px solid var(--line);margin-top:28px;padding-left:24px}.time{position:relative;margin-bottom:23px}.time:before{content:"";position:absolute;left:-29px;top:8px;width:8px;height:8px;border-radius:50%;background:var(--cyan)}.time small{font:500 .65rem "DM Mono",monospace;color:var(--cyan)}.time h3{font-size:.9rem;margin:5px 0}.time p{font-size:.78rem;margin:0}
+
+
+
+.contact-box{padding:clamp(28px,5vw,55px);border-radius:28px;border:1px solid #7cecff35;background:radial-gradient(circle at 85% 15%,#7cecff16,transparent 24rem),linear-gradient(135deg,#121a25,#0b0e14)}.contact-box h2{font-size:clamp(2.7rem,5vw,4.7rem);line-height:.98;letter-spacing:-.08em;margin:12px 0 18px;max-width:10ch}.contact-box p{color:var(--muted);max-width:570px;font-size:.88rem}footer{padding:30px 0 45px;display:flex;justify-content:space-between;gap:15px;color:#747e90;font: .65rem "DM Mono",monospace}
+
+
+
+.reveal{animation:fadeup .7s both}@keyframes fadeup{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+
+
+@media(max-width:850px){.hero{grid-template-columns:1fr;gap:30px;min-height:auto}.hero-art{max-width:560px;width:100%;margin:auto}.project.featured{grid-template-columns:1fr}.featured .project-media{min-height:300px}.stack-layout,.about{grid-template-columns:1fr;gap:25px}.about-visual{min-height:200px}}
+
+
+
+@media(max-width:620px){.container{width:calc(100% - 28px)}.nav-links{display:none}.hero{padding:55px 0 65px}h1{font-size:clamp(3.4rem,17vw,5rem)}.section{padding:65px 0}.section-top{display:block}.section-intro{margin-top:16px}.projects,.stack-list{grid-template-columns:1fr}.project.featured{grid-column:auto}.project-media,.featured .project-media{min-height:225px}.tailorher-gallery{grid-template-columns:1fr 1fr}.hero-panel{min-height:290px;padding:23px}footer{display:block}footer span{display:block;margin-bottom:8px}}
+
+
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+
+
+
+
+/* Profile photo */
+
+.hero-art{display:flex;justify-content:center;align-items:center;padding:20px}
+
+.hero-photo{display:block;width:100%;max-width:360px;aspect-ratio:4/5;object-fit:cover;object-position:center;border:1px solid var(--line);border-radius:28px;box-shadow:0 30px 90px #0006}
+
+.about-visual{border:1px solid var(--line);border-radius:24px;min-height:270px;padding:18px;background:linear-gradient(145deg,#171e2b,#0d1119);display:flex;align-items:center;justify-content:center}
+
+.about-photo{display:block;width:100%;max-width:320px;aspect-ratio:4/5;object-fit:cover;object-position:center;border-radius:18px}
+
+
+
+</style>
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+<header class="nav"><nav class="container nav-inner" aria-label="Main navigation">
+
+
+
+<a class="logo" href="#home">REEMA<b>.</b></a>
+
+
+
+<div class="nav-links"><a href="#work">Projects</a><a href="#stack">Skills</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+
+
+
+<a class="github-nav" href="https://github.com/reema0127" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+
+
+
+</nav></header>
+
+
+
+<main id="home">
+
+
+
+<section class="hero container">
+
+
+
+<div class="reveal">
+
+
+
+<div class="eyebrow">Software Engineering · AI · Full-Stack</div>
+
+
+
+<h1>Ideas into <span class="gradient">digital</span> products.</h1>
+
+
+
+<p class="hero-desc">Hi, I'm <strong>Reema Rafiudeen</strong> — a Software Engineering undergraduate who enjoys turning ideas into practical digital solutions. I build web and mobile applications, explore emerging technologies, and focus on creating software that is useful, intuitive, and impactful.</p>
+
+
+
+<div class="buttons"><a class="btn primary" href="#work">Explore my projects ↓</a><a class="btn ghost" href="Reema-Rafiudeen-CV-2026.pdf" download>Download CV ↗</a><a class="btn ghost" href="https://github.com/reema0127" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+
+
+
+</div>
+
+
+
+<div class="hero-art reveal"><img class="hero-photo" src="profile.jpg" alt="Portrait of Reema Rafiudeen"></div>
+
+
+
+</section>
+
+
+
+<section class="section" id="work"><div class="container">
+
+
+
+<div class="section-top"><div><div class="section-number">01 / SELECTED WORK</div><h2 class="section-title">Projects with purpose.</h2></div><p class="section-intro">A selection of projects exploring machine learning, mobile security and full-stack development. Replace the sample image files with your real project screenshots.</p></div>
+
+
+
+<div class="projects">
+
+
+
+<article class="project featured reveal">
+
+
+
+<div class="project-media guardianeye-media">
+    <img src="Splash Screen.png" alt="GuardianEye cybersecurity application splash screen" loading="lazy">
+    <span class="image-label">GUARDIANEYE · AI SECURITY</span>
+</div>
+
+
+
+<div class="project-body"><span class="project-index">PROJECT / 01</span><h3>GuardianEye — AI Phishing Detection</h3><p>An Android-based security application designed to identify phishing threats in SMS messages, URLs and QR codes. The project combines machine learning, Android development and a Flask REST API, with English, Sinhala and Tamil support.</p><div class="tags"><span class="tag">Python</span><span class="tag">Kotlin</span><span class="tag">Scikit-learn</span><span class="tag">Flask</span><span class="tag">Machine Learning</span></div>
+
+<details class="gallery-more guardianeye-more">
+    <summary>VIEW MORE APP SCREENS</summary>
+    <p class="gallery-note">GuardianEye mobile screenshots are shown in their tall phone-screen proportions. Select an image to open it full size.</p>
+    <div class="guardianeye-gallery">
+        <a href="Splash Screen.png" target="_blank" rel="noopener noreferrer"><img src="Splash Screen.png" alt="GuardianEye app splash screen" loading="lazy"></a>
+        <a href="home1.JPG" target="_blank" rel="noopener noreferrer"><img src="home1.JPG" alt="GuardianEye app splash screen" loading="lazy"></a>
+        <a href="home2.JPG" target="_blank" rel="noopener noreferrer"><img src="home2.JPG" alt="GuardianEye app splash screen" loading="lazy"></a>
+        <a href="home3.JPG" target="_blank" rel="noopener noreferrer"><img src="home3.JPG" alt="GuardianEye app splash screen" loading="lazy"></a>
+        <a href="analyses.JPG" target="_blank" rel="noopener noreferrer"><img src="analyses.JPG" alt="GuardianEye app splash screen" loading="lazy"></a>
+        <a href="analyzeurl.JPG" target="_blank" rel="noopener noreferrer"><img src="analyzeurl.JPG" alt="GuardianEye app splash screen" loading="lazy"></a>
+        <a href="History.JPG" target="_blank" rel="noopener noreferrer"><img src="History.JPG" alt="GuardianEye app splash screen" loading="lazy"></a>
+        <a href="historyqr.JPG" target="_blank" rel="noopener noreferrer"><img src="historyqr.JPG" alt="GuardianEye app splash screen" loading="lazy"></a>
+        <a href="historyurl.JPG" target="_blank" rel="noopener noreferrer"><img src="historyurl.JPG" alt="GuardianEye app splash screen" loading="lazy"></a>
+        <a href="settings1.JPG" target="_blank" rel="noopener noreferrer"><img src="settings1.JPG" alt="GuardianEye app splash screen" loading="lazy"></a>
+        <a href="settings2.JPG" target="_blank" rel="noopener noreferrer"><img src="settings2.JPG" alt="GuardianEye app splash screen" loading="lazy"></a>
+        <a href="safe.JPG" target="_blank" rel="noopener noreferrer"><img src="safe.JPG" alt="GuardianEye app splash screen" loading="lazy"></a>
+        <a href="phishing.JPG" target="_blank" rel="noopener noreferrer"><img src="phishing.JPG" alt="GuardianEye app splash screen" loading="lazy"></a>
+
+    </div>
+</details>
+
+<div class="project-links"><a class="project-link" href="https://drive.google.com/file/d/1qeOuWzgJEcHObP_bAARft4DiBefhkWOb/view?usp=sharing" target="_blank" rel="noopener noreferrer">WATCH DEMO ↗</a><a class="project-link" href="YOUR_GUARDIANEYE_GITHUB_LINK" target="_blank" rel="noopener noreferrer">SOURCE CODE ↗</a></div></div>
+
+
+
+</article>
+
+
+
+<article class="project reveal" id="tailorher-project">
+
+    <div class="project-media">
+
+        <img src="main.png" alt="TailorHer customer account and orders page" loading="lazy">
+
+        <span class="image-label">TAILORHER · E-COMMERCE</span>
+
+    </div>
+
+    <div class="project-body">
+
+        <span class="project-index">PROJECT / 02</span>
+
+        <h3>TailorHer — Fashion Store</h3>
+
+        <p>An eCommerce fashion store with customer account and order pages, product browsing, and an admin dashboard for managing products, customers, and orders.</p>
+
+        <div class="tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">Tailwind CSS</span><span class="tag">JavaScript</span><span class="tag">Admin Dashboard</span></div>
+
+        <details class="gallery-more">
+
+            <summary>VIEW MORE SCREENSHOTS</summary>
+
+            <p class="gallery-note">Explore the TailorHer storefront and admin dashboard screens.</p>
+
+ 
+<div class="tailorher-gallery">
+                <a href="tailorher-2.png" target="_blank" rel="noopener noreferrer"><img src="tailorher-2.png" alt="" loading="lazy"></a>
+                <a href="tailorher-3.png" target="_blank" rel="noopener noreferrer"><img src="tailorher-3.png" alt="" loading="lazy"></a>
+                <a href="tailorher-4.png" target="_blank" rel="noopener noreferrer"><img src="tailorher-4.png" alt="" loading="lazy"></a>
+                <a href="tailorher-5.png" target="_blank" rel="noopener noreferrer"><img src="tailorher-5.png" alt="" loading="lazy"></a>
+                <a href="tailorher-6.png" target="_blank" rel="noopener noreferrer"><img src="tailorher-6.png" alt="" loading="lazy"></a>
+            </div>
+
+        </details>
+
+        <div class="project-links"><a class="project-link" href="https://github.com/reema0127/TairlorHer-Laravel" target="_blank" rel="noopener noreferrer">VIEW PROJECT ↗</a></div>
+
+    </div>
+
+</article>
+
+
+
+<article class="project reveal" id="syos-project">
+    <div class="project-media">
+        <img src="syos-screen-01.png" alt="SYOS POS retail management dashboard" loading="lazy">
+        <span class="image-label">SYOS POS · RETAIL MANAGEMENT</span>
+    </div>
+    <div class="project-body">
+        <span class="project-index">PROJECT / 03</span>
+        <h3>SYOS POS — Retail Management System</h3>
+        <p>A Point-of-Sale management application for retail operations, including billing, stock management, online orders, employee authentication and reporting. The system uses a multi-tier client-server architecture with asynchronous TCP socket communication and synchronized billing operations.</p>
+        <div class="tags"><span class="tag">C#</span><span class="tag">WPF</span><span class="tag">TCP Sockets</span><span class="tag">SQL Server</span><span class="tag">Async/Await</span><span class="tag">SemaphoreSlim</span></div>
+        <details class="gallery-more">
+            <summary>VIEW MORE SCREENS</summary>
+            <p class="gallery-note">Explore the SYOS login, dashboard, billing, stock, online order, reporting and concurrency-testing screens.</p>
+            <div class="tailorher-gallery">
+                <a href="syos-screen-01.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-01.png" alt="SYOS login screen" loading="lazy"></a>
+                <a href="syos-screen-02.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-02.png" alt="SYOS dashboard homepage" loading="lazy"></a>
+                <a href="syos-screen-03.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-03.png" alt="SYOS billing screen" loading="lazy"></a>
+                <a href="syos-screen-04.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-04.png" alt="SYOS low-stock broadcast notification" loading="lazy"></a>
+                <a href="syos-screen-05.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-05.png" alt="SYOS online order screen" loading="lazy"></a>
+                <a href="syos-screen-06.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-06.png" alt="SYOS daily sales report" loading="lazy"></a>
+                <a href="syos-screen-07.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-07.png" alt="SYOS reshelving report" loading="lazy"></a>
+                <a href="syos-screen-08.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-08.png" alt="SYOS reorder report" loading="lazy"></a>
+                <a href="syos-screen-09.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-09.png" alt="SYOS stock report" loading="lazy"></a>
+                <a href="syos-screen-10.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-10.png" alt="SYOS transaction and bill report" loading="lazy"></a>
+                <a href="syos-screen-11.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-11.png" alt="SYOS item management screen" loading="lazy"></a>
+                <a href="syos-screen-12.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-12.png" alt="SYOS stock management screen" loading="lazy"></a>
+                <a href="syos-screen-13.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-12.png" alt="SYOS stock management screen" loading="lazy"></a>
+                <a href="syos-screen-14.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-12.png" alt="SYOS stock management screen" loading="lazy"></a>
+                <a href="syos-screen-15.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-12.png" alt="SYOS stock management screen" loading="lazy"></a>
+                <a href="syos-screen-16.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-12.png" alt="SYOS stock management screen" loading="lazy"></a>
+                <a href="syos-screen-17.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-12.png" alt="SYOS stock management screen" loading="lazy"></a>
+                <a href="syos-screen-18.png" target="_blank" rel="noopener noreferrer"><img src="syos-screen-12.png" alt="SYOS stock management screen" loading="lazy"></a>
+
+            </div>
+        </details>
+    </div>
+</article>
+
+
+</div></div></section>
+
+
+
+<section class="section" id="stack"><div class="container">
+
+
+
+<div class="section-top"><div><div class="section-number">02 / TECHNOLOGY</div><h2 class="section-title">My toolkit.</h2></div><p class="section-intro">Technologies and tools used across programming, web, mobile, data and interface design.</p></div>
+
+
+
+<div class="stack-layout"><div class="stack-copy"><p class="mono" style="color:var(--cyan);font-size:.68rem">// CURRENT FOCUS</p><h3>Learning by building real things.</h3><p>I enjoy exploring technologies through projects — from machine-learning models and Android applications to full-stack web platforms.</p></div><div class="stack-list">
+
+
+
+<div class="stack-card"><small>Languages</small><p>Python · C# · Kotlin · JavaScript · PHP</p></div><div class="stack-card"><small>Web</small><p>React · Laravel · Next.js · Alpine.js · HTML/CSS</p></div><div class="stack-card"><small>Mobile</small><p>Flutter · Kotlin · Android Studio</p></div><div class="stack-card"><small>Databases</small><p>MySQL · SQL Server</p></div><div class="stack-card"><small>Development</small><p>OOP · REST APIs · GitHub · Postman</p></div><div class="stack-card"><small>UI / UX</small><p>Figma · Adobe XD · Wireframing</p></div>
+
+
+
+</div></div></div></section>
+
+
+
+<section class="section" id="about"><div class="container"><div class="section-top"><div><div class="section-number">03 / ABOUT</div><h2 class="section-title">A little about me.</h2></div></div>
+
+
+
+<div class="about"><div class="about-visual"><img class="about-photo" src="profile.jpg" alt="Portrait of Reema Rafiudeen"></div><div class="about-copy"><p>I'm currently pursuing a <strong style="color:var(--text)">BEng (Hons) Software Engineering</strong> at the University of Staffordshire. My development interests include AI, mobile applications, full-stack development and user-focused interfaces.</p><p>I like taking an idea from an early concept into something functional, learning new technologies along the way and improving the final experience through iteration.</p><div class="timeline"><div class="time"><small>2023 — PRESENT</small><h3>BEng (Hons) Software Engineering · University of Staffordshire</h3><p>Software engineering studies and hands-on application development.</p></div><div class="time"><small>FEB 2023 — JUL 2023</small><h3>Content Manager (WordPress) · Aadira Holdings</h3><p>Managed website content and optimized text, images and multimedia.</p></div><div class="time"><small>LANGUAGES</small><h3>English · Sinhala · Tamil</h3><p>English and Sinhala — fluent · Tamil — intermediate</p></div></div></div></div>
+
+
+
+</div></section>
+
+
+
+<section class="section" id="contact"><div class="container"><div class="contact-box"><div class="section-number">04 / CONTACT</div><h2>Let's build something.</h2><p>I'm open to software engineering opportunities, collaborations and projects where I can keep learning while creating useful products.</p><div class="contact-actions"><a class="btn primary" href="mailto:reemamohamed8761@gmail.com">Email me ↗</a><a class="btn ghost" href="https://github.com/reema0127" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="btn ghost" href="https://www.linkedin.com/in/reema-rafiudeen-mohamed" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div></div></section>
+
+
+
+</main>
+
+
+
+<footer class="container"><span>© 2026 Reema Rafiudeen</span><span>Software Engineering · Sri Lanka</span></footer>
+
+
+
+</body></html>
